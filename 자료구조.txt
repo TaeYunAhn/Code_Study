@@ -1,0 +1,52 @@
+자료구조
+
+
+std::vector
+std::map
+
+
+c
+
+삽입
+조회
+삭제
+
+
+
+add()
+at()
+del()
+
+char* data;
+int len;
+
+
+add() - 1
+add() - 2
+add() - 4
+add() - 4
+add() - 8
+
+
+add(1)
+add(2)
+add(3)
+
+1,2,3
+
+del(1)
+
+
+0 1 2 3 
+1 2 n 3
+
+
+
+Linear: 리스트/스택/큐/우선순위큐
+Non-Linear: 트리/그래프/해시
+
+
+
+BST
+
+
