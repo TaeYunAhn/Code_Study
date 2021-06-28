@@ -1,6 +1,10 @@
 #pragma once
+
+
 class Cquick_sort
 {
+
+public:
 	Cquick_sort();
 	~Cquick_sort();
 
@@ -8,7 +12,8 @@ class Cquick_sort
 	void quick_sort(int arr[], int start, int end);
 	void swap(int* start, int* end);
 	int partition(int arr[], int start, int end);
-	void last_partition(int arr[]); // 더이상 나눌 수 없을 때
+	void quick_sort(int arr[]); // 더이상 나눌 수 없을 때
+	void print_arr(int arr[], int start, int end);
 
 
 

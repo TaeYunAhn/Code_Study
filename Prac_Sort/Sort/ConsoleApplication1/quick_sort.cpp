@@ -1,7 +1,16 @@
+#include <iostream>
 #include "quick_sort.h"
 
 using namespace std;
 
+Cquick_sort::Cquick_sort()
+{
+
+}
+Cquick_sort::~Cquick_sort()
+{
+
+}
 
 
 void Cquick_sort::quick_sort(int arr[], int start, int end)
@@ -46,7 +55,18 @@ int Cquick_sort::partition(int arr[], int start, int end)
 	return (start);
 }
 
-void Cquick_sort::last_partition(int arr[])
+void Cquick_sort::quick_sort(int arr[])
 {
+	quick_sort(arr, 0, sizeof(arr));
+}
+
+void Cquick_sort::print_arr(int arr[], int start, int end)
+{
+	while (arr[start] != arr[end])
+	{
+		cout << arr[start] << endl;
+		start++;
+	}
+	
 
 }
