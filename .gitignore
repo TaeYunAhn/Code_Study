@@ -1,3 +1,8 @@
 .vs/
 Debug/
 .vcxproj/
+*.vcxproj/
+.vcxproj.filters/
+*.vcxproj.filters/
+.vcxproj.user/
+*.vcxproj.user/
