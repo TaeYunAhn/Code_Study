@@ -12,8 +12,12 @@ Cquick_sort::~Cquick_sort()
 
 }
 
+void Cquick_sort::quick_sort(int arr[], int size)
+{
+	quick_sort(arr, 0, arr[size - 1], size);
+}
 
-void Cquick_sort::quick_sort(int arr[], int start, int end)
+void Cquick_sort::quick_sort(int arr[], int start, int end, int size)
 {
 	if (start == end || !arr[start])
 		return;
@@ -21,11 +25,11 @@ void Cquick_sort::quick_sort(int arr[], int start, int end)
 	int temp_arr = partition(arr, start, end);
 	if (start < temp_arr - 1)
 	{
-		quick_sort(arr, start, temp_arr - 1);
+		quick_sort(arr, start, temp_arr - 1, size);
 	}
 	if (temp_arr < end)
 	{
-		quick_sort(arr, temp_arr, end);
+		quick_sort(arr, temp_arr, end, size);
 	}
 
 }
@@ -47,26 +51,23 @@ int Cquick_sort::partition(int arr[], int start, int end)
 			if (arr[start] > arr[end])
 			{
 				swap(&arr[start], &arr[end]);
-				start++;
-				end++;
 			}
+			start++;
+			end++;
 		}
 	}
-	return (start);
+	return start;
 }
 
-void Cquick_sort::quick_sort(int arr[])
-{
-	quick_sort(arr, 0, sizeof(arr));
-}
 
-void Cquick_sort::print_arr(int arr[], int start, int end)
+
+void Cquick_sort::print_arr(int arr[], int size)
 {
-	while (arr[start] != arr[end])
+	int i = 0;
+	while (arr[i] != arr[size - 1])
 	{
-		cout << arr[start] << endl;
-		start++;
+		cout << arr[i] << " ";
+		i++;
 	}
-	
-
+	cout << endl;
 }
