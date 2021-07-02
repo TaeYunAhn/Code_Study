@@ -9,7 +9,7 @@ public:
 	~Cquick_sort();
 
 	
-	void quick_sort(int arr[], int start, int end, int size);
+	void quick_sort(int arr[], int start, int end);
 	void swap(int* start, int* end);
 	int partition(int arr[], int start, int end);
 	void quick_sort(int arr[], int size); // 더이상 나눌 수 없을 때
