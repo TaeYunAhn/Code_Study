@@ -1,8 +1,9 @@
-#include "SignUP.h"
+#include "AccController.h"
+#include "MainController.h"
 #include <iostream>
 using namespace std;
 
-void startEmail()
+/*oid startEmail()
 {
     int num;
     cout << "프로그램 실행" << endl;
@@ -49,12 +50,14 @@ void startEmail()
     cout << "비밀번호를 입력하세요 : " << endl;
     cin >> PW;
     cout << endl;
+*/
+int main()
+{
+    MainController MAcc;
+    MAcc.start();
 
-    int main()
-    {
-
-        startEmail()
-            /* 프로그램 실행
+    //startEmail()
+    /* 프로그램 실행
     1. 회원가입 -> ID, PW, Back
     2. 로그인 -> 맞는지 확인 -> Show -> All
     3. 종료
@@ -62,8 +65,8 @@ void startEmail()
     // 회원가입 or 로그인 선택
 
     // 로그인 체크 ->
-    // 기능 선택
+    // 기능 선택 
     */
 
-            SignUP(email, password);
-    }
+    //SignUP(email, password);
+}
