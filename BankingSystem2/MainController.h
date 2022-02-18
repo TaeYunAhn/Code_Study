@@ -1,12 +1,11 @@
-#pragma once 
+#pragma once
 #include <string>
 //#include "AccController.h"
 
-class AccController; // Àü¹æ¼±¾ð
+class AccController; // ï¿½ï¿½ï¿½æ¼±ï¿½ï¿½
 class MainController
 {
 public:
-	
 	MainController();
 	~MainController();
 
@@ -15,9 +14,9 @@ public:
 	void InputAccInfo(int &Acc, std::string &Name, int &Balance);
 	void InputMoneyInfo(int &Acc, int &Money, bool bDeposit = true);
 	void ShowAccInfo();
-	void PrintResult(EN_RESULT res, bool bDeposit = false );
-	
+	void PrintResult(EN_RESULT res, bool bDeposit = false);
+
 private:
 	//AccController accController;
-	AccController* accController;
+	AccController *accController;
 };

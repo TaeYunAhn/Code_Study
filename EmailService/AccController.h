@@ -28,6 +28,7 @@ public:
 
     EN_RESULT SignUP(const string &ID, const string &PW);
     EN_RESULT Login(const string &ID, const string &PW);
+    int LoginService(int &error);
     vector<EmailAcc> GetTotalAcc();
     // int GetA() { return a; }
     // int SetA(int val) { a = val; }

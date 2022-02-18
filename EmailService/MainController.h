@@ -18,8 +18,9 @@ public:
     ~MainController();
 
     void start();
+    void MailStart();
 
-    //void SignUpID(string &ID, string &PW);
+    void SignUpID(string &ID, string &PW);
 
     //void ShowMail();
     //void SendMail();
