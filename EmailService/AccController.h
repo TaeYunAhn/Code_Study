@@ -1,6 +1,8 @@
 #pragma once
 #include <vector>
 #include <string>
+#include <map>
+
 using namespace std;
 
 enum EN_RESULT
@@ -12,6 +14,14 @@ enum EN_RESULT
     EN_WRONG_PW,
 };
 
+struct s_mail
+{
+    string To;
+    string From;
+    string Title;
+    string Contents;
+} t_mail;
+
 struct EmailAcc
 {
     EmailAcc(string _ID, string _PW) : ID(_ID), PW(_PW) {}
@@ -19,6 +29,14 @@ struct EmailAcc
     string ID;
     string PW;
 };
+
+/*struct EmailList
+{
+    EmailList()
+    ~EmailList() {}
+    string ID;
+    string PW;
+};*/
 
 class AccController
 {
@@ -28,12 +46,14 @@ public:
 
     EN_RESULT SignUP(const string &ID, const string &PW);
     EN_RESULT Login(const string &ID, const string &PW);
-    int LoginService(int &error);
+    void LoginService(EN_RESULT error);
     vector<EmailAcc> GetTotalAcc();
     // int GetA() { return a; }
     // int SetA(int val) { a = val; }
 
 private:
     vector<EmailAcc> emailAccounts;
+    vector<s_mail> mailContents;
+    map<EmailAcc, s_mail> mailList;
     int a;
 };

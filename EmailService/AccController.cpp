@@ -1,5 +1,7 @@
 #include "AccController.h"
 #include <string>
+#include <iostream>
+using namespace std;
 
 AccController::AccController()
 {
@@ -22,37 +24,33 @@ EN_RESULT AccController::SignUP(const string &ID, const string &PW)
     LoginService(EN_SIGNUP_SUCCESS);
 }
 
-int AccController::LoginService(int &error)
+void AccController::LoginService(EN_RESULT error)
 {
     if (error == EN_NOT_EXIST_ACC)
     {
-        printf("NOT_EXIST_ACC");
-        return Login;
+        cout << "NOT_EXIST_ACC" << endl;
     }
-    else if (error == EN_LOGIN_SUCCESS)
+    /*else if (error == EN_LOGIN_SUCCESS)
     {
-        printf("LOGIN_SUCCESS");
-        //return 이메일 작성.보기.등등 메뉴로 감
+        cout << "LOGIN_SUCCESS" << endl;
+        //이메일 작성.보기.등등 메뉴로 감
     }
+    */
     else if (error == EN_WRONG_PW)
     {
-        printf("WRONG_PW");
-        return Login;
+        cout << "WRONG_PW" << endl;
     }
     else if (error == EN_EXIST_ALREADY)
     {
-        printf("EXIST_ALREADY");
-        return SignUP;
+        cout << "EXIST_ALREADY" << endl;
     }
     else if (error == EN_SIGNUP_SUCCESS)
     {
-        printf("SIGNUP_SUCCESS");
-        return Login;
+        cout << "SIGNUP_SUCCESS" << endl;
     }
     else
     {
-        printf("error");
-        return Login;
+        cout << "error" << endl;
     }
 }
 
@@ -63,17 +61,17 @@ EN_RESULT AccController::Login(const string &ID, const string &PW)
         if (emailAccounts[i].ID != ID)
         {
             LoginService(EN_NOT_EXIST_ACC);
-            return 0;
+            return EN_NOT_EXIST_ACC;
         }
         else if (emailAccounts[i].ID == ID && emailAccounts[i].PW == PW)
         {
             LoginService(EN_LOGIN_SUCCESS);
-            return 0;
+            return EN_LOGIN_SUCCESS;
         }
         else if (emailAccounts[i].ID == ID && emailAccounts[i].PW != PW)
         {
             LoginService(EN_WRONG_PW);
-            return 0;
+            return EN_WRONG_PW;
         }
     }
 }

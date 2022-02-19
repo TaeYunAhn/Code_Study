@@ -1,5 +1,6 @@
 #include "MainController.h"
 #include "AccController.h"
+#include "EmailController.h"
 
 MainController::MainController()
 {
@@ -31,10 +32,12 @@ void MainController::start()
 
             string ID;
             string PW;
-            cout << "ID : " << endl;
+            cout << "ID : ";
             cin >> ID;
-            cout << "PW : " << endl;
+            cout << endl;
+            cout << "PW : ";
             cin >> PW;
+            cout << endl;
             const EN_RESULT res = accController->SignUP(ID, PW);
         }
         break;
@@ -42,11 +45,15 @@ void MainController::start()
         {
             string ID;
             string PW;
-            cout << "ID : " << endl;
+            cout << "ID : ";
             cin >> ID;
-            cout << "PW : " << endl;
+
+            cout << "PW : ";
             cin >> PW;
+            cout << endl;
             const EN_RESULT res = accController->Login(ID, PW);
+            if (res == EN_LOGIN_SUCCESS)
+                MainController::MailStart(ID, PW);
         }
         break;
         case 3:
@@ -58,12 +65,12 @@ void MainController::start()
     }
 }
 
-void MainController::MailStart()
+void MainController::MailStart(string &ID, string &PW)
 {
     while (1)
     {
         int sel = 0;
-        cout << "-----Menu-----" << endl;
+        cout << "-----" << ID << "'s Menu-----" << endl;
         cout << "1.보관함" << endl;
         cout << "2.메일 쓰기" << endl;
         cout << "3.로그아웃" << endl;
@@ -76,14 +83,8 @@ void MainController::MailStart()
         {
         case 1:
         {
-
-            string ID;
-            string PW;
-            cout << "ID : " << endl;
-            cin >> ID;
-            cout << "PW : " << endl;
-            cin >> PW;
-            const EN_RESULT res = accController->SignUP(ID, PW);
+            cout << "----Mail List----" << endl;
+            emailController->Show_All(ID);
         }
         break;
         case 2:

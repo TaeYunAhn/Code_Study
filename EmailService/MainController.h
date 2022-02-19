@@ -3,14 +3,8 @@
 #include <iostream>
 using namespace std;
 
-struct s_mail
-{
-    string To;
-    string Title;
-    string Contents;
-} t_mail;
-
 class AccController;
+class EmailController;
 class MainController
 {
 public:
@@ -18,7 +12,7 @@ public:
     ~MainController();
 
     void start();
-    void MailStart();
+    void MailStart(string &ID, string &PW);
 
     void SignUpID(string &ID, string &PW);
 
@@ -27,4 +21,5 @@ public:
 
 private:
     AccController *accController;
+    EmailController *emailController;
 };
