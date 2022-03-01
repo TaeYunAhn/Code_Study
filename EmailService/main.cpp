@@ -3,54 +3,6 @@
 #include <iostream>
 using namespace std;
 
-/*oid startEmail()
-{
-    int num;
-    cout << "프로그램 실행" << endl;
-    cout << "1. 회원가입" << endl;
-    cout << "2. 로그인" << endl;
-    cout << "3. 프로그램 종료" << endl;
-    cin >> num;
-    switch (num)
-    {
-    case 1:
-    {
-        while (1)
-        {
-            string ID;
-            string PW;
-
-            cout << "아이디를 입력하세요 : " << endl;
-            cin >> ID;
-            cout << endl;
-
-            cout << "비밀번호를 입력하세요 : " << endl;
-            cin >> PW;
-            cout << endl;
-
-            if (sizeof(ID) == 0 || sizeof(PW) == 0)
-            {
-                cout << "잘못 입력하셨습니다." << endl;
-                return startEmail();
-            }
-
-            cout << "회원가입 완료" << endl;
-            return startEmail();
-        }
-    }
-    case 2:
-    }
-    string ID;
-    string PW;
-
-    cout << "아이디를 입력하세요 : " << endl;
-    cin >> ID;
-    cout << endl;
-
-    cout << "비밀번호를 입력하세요 : " << endl;
-    cin >> PW;
-    cout << endl;
-*/
 int main()
 {
     MainController MAcc;

@@ -1,15 +1,15 @@
 #include "MainController.h"
-#include "AccController.h"
-#include "EmailController.h"
 
 MainController::MainController()
 {
     accController = new AccController();
+    emailController = new EmailController();
 }
 
 MainController::~MainController()
 {
     delete accController;
+    delete emailController;
 }
 
 void MainController::start()
@@ -34,10 +34,8 @@ void MainController::start()
             string PW;
             cout << "ID : ";
             cin >> ID;
-            cout << endl;
             cout << "PW : ";
             cin >> PW;
-            cout << endl;
             const EN_RESULT res = accController->SignUP(ID, PW);
         }
         break;
@@ -53,7 +51,10 @@ void MainController::start()
             cout << endl;
             const EN_RESULT res = accController->Login(ID, PW);
             if (res == EN_LOGIN_SUCCESS)
-                MainController::MailStart(ID, PW);
+            {
+                //cout << "LOGIN_SUCCESS" << endl;
+                MainController::MailStart(ID);
+            }
         }
         break;
         case 3:
@@ -65,8 +66,10 @@ void MainController::start()
     }
 }
 
-void MainController::MailStart(string &ID, string &PW)
+void MainController::MailStart(string &ID)
 {
+    //s_mail m;
+
     while (1)
     {
         int sel = 0;
@@ -83,21 +86,37 @@ void MainController::MailStart(string &ID, string &PW)
         {
         case 1:
         {
+
             cout << "----Mail List----" << endl;
-            emailController->Show_All(ID);
+            emailController->ShowMailList(ID);
+            //emailController->Show_All(ID);
         }
         break;
         case 2:
         {
-            string ID;
-            string PW;
-            cout << "ID : " << endl;
-            cin >> ID;
-            cout << "PW : " << endl;
-            cin >> PW;
-            const EN_RESULT res = accController->Login(ID, PW);
+            string to, from, title, contents;
+            cout << "----Send Mail----" << endl;
+            cout << "1. To : ";
+            cin >> to;
+            // 1. 아예 여기서 gettotalAcc 가져와서 있는지 없는지 확인
+            // 2. EmailController sendMail 에서 값이 있는지 없는지 확인
+
+            cout << "2. From : ";
+            cin >> from;
+
+            cout << "3. Title : ";
+            cin >> title;
+
+            cout << "4. Contents : ";
+            cin >> contents;
+            cout << endl;
+
+            emailController->sendMail(to, from, title, contents);
+            cout << "Send Complete" << endl
+                 << endl;
         }
         break;
+
         case 3:
         {
             return;

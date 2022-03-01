@@ -1,18 +1,24 @@
 #include <iostream>
 #include <vector>
+#include <map>
+
 using namespace std;
 
 struct s_mail
 {
+    s_mail(string to, string from, string title, string contents) : To(to), From(from), Title(title), Contents(contents) {}
+    ~s_mail() {}
     string To;
     string From;
     string Title;
     string Contents;
-} t_mail;
-
-struct EmailList
-{
 };
+
+/*struct EmailList
+{
+    EmailList()
+    ~EmailList() {}
+};*/
 
 class EmailController
 {
@@ -20,7 +26,12 @@ public:
     EmailController();
     ~EmailController();
 
-    void Show_All(string &ID);
+    //void Show_All(string &ID); .cpp 파일에 있는데 헤더에 있으면 에러날 수 있으니 지우도록 하자.
+    void ShowMailList(string &id);
+    void sendMail(string &to, string &from, string &title, string &contents);
+
+private:
+    map<string, vector<s_mail> > mailList;
 };
 
 //파일을 할거면...

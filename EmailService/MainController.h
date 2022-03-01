@@ -1,6 +1,8 @@
 #pragma once
 #include <string>
 #include <iostream>
+#include "AccController.h"
+#include "EmailController.h"
 using namespace std;
 
 class AccController;
@@ -12,7 +14,7 @@ public:
     ~MainController();
 
     void start();
-    void MailStart(string &ID, string &PW);
+    void MailStart(string &ID);
 
     void SignUpID(string &ID, string &PW);
 
